@@ -4,6 +4,7 @@ import com.example.shosho.dietfood.model.AddToCardResponse;
 import com.example.shosho.dietfood.model.CancelSubscribtionResponse;
 import com.example.shosho.dietfood.model.CardResponse;
 import com.example.shosho.dietfood.model.ChangePasswordResponse;
+import com.example.shosho.dietfood.model.CheckOut.CheckOutResponse;
 import com.example.shosho.dietfood.model.DeleteCardResponse;
 import com.example.shosho.dietfood.model.MinCardResponse;
 import com.example.shosho.dietfood.model.MyOrdersResponse;
@@ -96,4 +97,7 @@ public interface Service {
 
     @POST("cancelSubscribe")
     Call<CancelSubscribtionResponse> getCancelSubscribtionData(@Body Map<String,String> map);
+
+    @POST("checkout")
+    Call<CheckOutResponse> getCheckOutData(@Body Map<String,String> map);
 }

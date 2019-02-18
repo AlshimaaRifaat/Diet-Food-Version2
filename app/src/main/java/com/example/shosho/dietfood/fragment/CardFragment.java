@@ -223,11 +223,11 @@ public class CardFragment extends Fragment implements CardView ,AddToCardView
     public void showCardDetails(CardData cardData, CardAdapter.ViewHolder holder) {
         addToCardPresenter.getAddToCardResult( Login,cardData.getMealFoodId());
         holder.quantity.setText(  Integer.toString(  Integer.parseInt(  holder.quantity.getText().toString() )+1 ));
-        holder.price.setText(Integer.toString(  Integer.parseInt(holder.quantity.getText().toString())*Integer.parseInt(  cardData.getPrice()) )+" SR");
+        holder.price.setText(Double.toString(  Double.parseDouble(holder.quantity.getText().toString())*Double.parseDouble(  cardData.getPrice()) )+" SR");
         /*int TotalPrice=Integer.parseInt(  textTotalPrice.getText().toString())+Integer.parseInt(  cardData.getPrice());
         textTotalPrice.setText( Integer.toString( TotalPrice ) );*/
 
-        int TotalPrice=Integer.parseInt(  textTotalPrice.getText().toString())+Integer.parseInt(  cardData.getPrice());
+        double TotalPrice=Double.parseDouble(  textTotalPrice.getText().toString())+Double.parseDouble(  cardData.getPrice());
         textTotalPrice.setText(String.valueOf(TotalPrice) );
 
     }
@@ -238,8 +238,8 @@ public class CardFragment extends Fragment implements CardView ,AddToCardView
         if(!holder.quantity.getText().toString().equals( "0" )) {
             minCardPresenter.getMinCardResult( SplashActivity.Login, cardData.getMealFoodId() );
             holder.quantity.setText( Integer.toString( Integer.parseInt( holder.quantity.getText().toString() ) - 1 ) );
-            holder.price.setText( Integer.toString( Integer.parseInt( holder.quantity.getText().toString() ) * Integer.parseInt( cardData.getPrice() ) ) + " SR" );
-            int TotalPrice=Integer.parseInt(  textTotalPrice.getText().toString())-Integer.parseInt(  cardData.getPrice());
+            holder.price.setText( Double.toString( Double.parseDouble( holder.quantity.getText().toString() ) * Double.parseDouble( cardData.getPrice() ) ) + " SR" );
+            Double TotalPrice=Double.parseDouble(  textTotalPrice.getText().toString())-Double.parseDouble(  cardData.getPrice());
             /*textTotalPrice.setText( Integer.toString( TotalPrice ) );*/
             textTotalPrice.setText(String.valueOf(TotalPrice) );
         }else
